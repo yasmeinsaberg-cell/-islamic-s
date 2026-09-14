@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سباق الأبطال</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- مسار السباق -->
+        <div id="road-bg"></div>
+        
+        <!-- واجهة التحكم وشريط التقدم -->
+        <div id="hud">
+            <div class="control-box">
+                <label for="lesson-index">مرحلة السباق:</label>
+                <select id="lesson-index" onchange="jumpToLesson()"></select>
+            </div>
+            
+            <div class="progress-container">
+                <span>خط النهاية 🏁</span>
+                <div id="progress-bar-bg">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <button id="ask-btn" onclick="drawQuestion()">تحدي جديد 🏁</button>
+        </div>
+
+        <!-- سيارة المتسابق -->
+        <div id="car-container">
+            <div id="nitro-flame" class="hidden">🔥</div>
+            <div id="car">🏎️</div>
+        </div>
+
+        <!-- رسائل التشجيع -->
+        <div id="feedback-message" class="hidden"></div>
+    </div>
+
+    <!-- المربع الحواري (محطة الإصلاح / الأسئلة) -->
+    <div id="quiz-modal" class="hidden">
+        <div class="modal-content">
+            
+            <!-- قسم الشرح (محطة الإصلاح) -->
+            <div id="lesson-section" class="hidden">
+                <h2 id="lesson-title" style="color: #e67e22;"></h2>
+                <div class="lesson-box">
+                    <p id="lesson-text"></p>
+                </div>
+                <button id="understand-btn" onclick="showQuestion()" class="action-btn">تم الإصلاح، انطلق! 🏎️</button>
+            </div>
+            
+            <!-- قسم السؤال -->
+            <div id="question-section" class="hidden">
+                <p id="chapter-branch-label" class="badge"></p>
+                <h3 id="question-counter"></h3>
+                <h2 id="question-text"></h2>
+                <div id="options"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
